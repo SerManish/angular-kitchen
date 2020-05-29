@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../../recipe.modal';
 import { RecipeService } from '../../recipe.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-item',
@@ -9,14 +10,9 @@ import { RecipeService } from '../../recipe.service';
 })
 export class RecipeItemComponent implements OnInit {
   @Input() recipe:Recipe;
-  
-  constructor(private recipeservice:RecipeService){}
+  @Input('index') id:number;
+  constructor(private recipeservice:RecipeService,private router:Router,private activelink:ActivatedRoute){}
 
   ngOnInit(): void {
-  }
-
-  loadDetails()
-  {
-    this.recipeservice.selected.emit(this.recipe);
   }
 }

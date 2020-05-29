@@ -3,8 +3,8 @@
         <button class="btn btn-warning">New Recipe</button>
     </div>
 </div>
-<hr>
-<app-recipe-item *ngFor="let recip of recipes" [recipe] = "recip"></app-recipe-item>
+<br>
+<app-recipe-item *ngFor="let recip of recipes;index as i" [recipe] = "recip" [index]="i"></app-recipe-item>
 
 
 

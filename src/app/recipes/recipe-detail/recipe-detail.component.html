@@ -1,45 +1,41 @@
-<div *ngIf="selectedRecipe; else infoText">
-    <div class="row">
-        <div class="col-12">
-            <img src="{{selectedRecipe.imagePath}}" alt="" class="img-responsive">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <h1>{{selectedRecipe.name}}</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" appDropdown [toBePlaced]='dropdownClass'>
-                    Manage Recipe
-                </button>
-                <div class="dropdown-menu"  #dropdownClass>
-                  <a class="dropdown-item" (click)="toShoppingList()">To shopping List</a>
-                  <a class="dropdown-item" href="#">Edit Recipe</a>
-                  <a class="dropdown-item" href="#">Delete Recipe</a>
-                </div>
-              </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            {{selectedRecipe.description}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <ul class="list-group">
-                <a class="list-group-item" style="cursor:pointer;"
-                *ngFor="let ingredient of selectedRecipe.ingredients" >
-                {{ingredient.name}} ({{ingredient.amount}})
-                </a>
-            </ul>
-        </div>
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <img src="{{selectedRecipe.imagePath}}" alt="" class="img-responsive">
     </div>
 </div>
-
-<ng-template #infoText>
-    <p>Please seclect a recipe</p>
-</ng-template>
+<br>
+<div class="row">
+    <div class="col-10">
+        <h1>{{selectedRecipe.name}}</h1>
+    </div>
+    <div class="col-2">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" appDropdown [toBePlaced]='dropdownClass'>
+                Manage Recipe
+            </button>
+            <div class="dropdown-menu"  #dropdownClass>
+                <a class="dropdown-item" (click)="toShoppingList()">To shopping List</a>
+                <a class="dropdown-item" href="#">Edit Recipe</a>
+                <a class="dropdown-item" href="#">Delete Recipe</a>
+            </div>
+            </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-12">
+        {{selectedRecipe.description}}
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-12">
+        <h5>Ingredients</h5>
+        <ul class="list-group">
+            <a class="list-group-item" style="cursor:pointer;"
+            *ngFor="let ingredient of selectedRecipe.ingredients" >
+            {{ingredient.name}} ({{ingredient.amount}})
+            </a>
+        </ul>
+    </div>
+</div>

@@ -16,7 +16,7 @@
             <div class="dropdown-menu"  #dropdownClass>
                 <button class="dropdown-item" (click)="toShoppingList()">To shopping List</button>
                 <button class="dropdown-item" [routerLink]="['edit']">Edit Recipe</button>
-                <button class="dropdown-item" >Delete Recipe</button>
+                <button class="dropdown-item" (click)="deleteRecipe()">Delete Recipe</button>
             </div>
             </div>
     </div>

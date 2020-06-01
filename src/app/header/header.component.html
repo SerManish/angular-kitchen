@@ -8,8 +8,8 @@
         <li class="dropdown">
             <a class="nav-link dropdown-toggle" role="button" appDropdown [toBePlaced]="dropdownClass">Manage</a>
             <ul class="dropdown-menu dropdown-menu-right" #dropdownClass>
-                <li><a class="nav-link text-dark">Save Data</a></li>
-                <li><a class="nav-link text-dark">Fetch Data</a></li>
+                <li><a class="nav-link text-dark" (click)="saveData()">Save Data</a></li>
+                <li><a class="nav-link text-dark" (click)="fetchData()">Fetch Data</a></li>
             </ul>
         </li>
     </ul>

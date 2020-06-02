@@ -99,7 +99,7 @@ export class AuthService{
             if(errorResponse.error.error.message=='EMAIL_EXISTS')
                 errorMessage = "The email id already exists";
             else if(errorResponse.error.error.message=='EMAIL_NOT_FOUND')
-                errorMessage = "You have entered a wrong email";
+                errorMessage = "You don't have an account with this email id! Sign Up instead";
             else if(errorResponse.error.error.message=='INVALID_PASSWORD')
                 errorMessage = "You have entered an incorrect password";
             else if(errorResponse.error.error.message=='USER_DISABLED')

@@ -8,9 +8,9 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DropdownDirective } from '../shared/dropdown.directive';
 import { AuthGaurd } from '../auth/auth.gaurd';
 import { RecipeResolverService } from './recipe-resolver.service';
+import { SharedModule } from 'src/shared.module';
 
 @NgModule({
     declarations:[
@@ -19,21 +19,18 @@ import { RecipeResolverService } from './recipe-resolver.service';
         RecipeDetailComponent,
         RecipeItemComponent,
         RecipeDetailDefaultComponent,
-        RecipeEditComponent,
-        DropdownDirective
+        RecipeEditComponent
     ],
     imports:[
-        RouterModule.forChild([ {path:'recipe',component:RecipesComponent,canActivate:[AuthGaurd],children:[
+        RouterModule.forChild([ {path:'',component:RecipesComponent,canActivate:[AuthGaurd],children:[
             {path:'',component:RecipeDetailDefaultComponent,resolve:[RecipeResolverService]},
             {path:'new',component:RecipeEditComponent},
             {path:':id',component:RecipeDetailComponent ,resolve:[RecipeResolverService]},
             {path:':id/edit',component:RecipeEditComponent,resolve:[RecipeResolverService]}
         ]}]),
         CommonModule,
-        ReactiveFormsModule
-    ],
-    exports:[
-        DropdownDirective
+        ReactiveFormsModule,
+        SharedModule
     ]
 })
 export class RecipesModule

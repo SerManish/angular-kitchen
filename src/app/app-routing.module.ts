@@ -14,8 +14,8 @@ const routes:Routes = [
     {path:'recipe',component:RecipesComponent,canActivate:[AuthGaurd],children:[
         {path:'',component:RecipeDetailDefaultComponent,resolve:[RecipeResolverService]},
         {path:'new',component:RecipeEditComponent},
-        {path:':id',component:RecipeDetailComponent ,resolve:[RecipeResolverService]},
-        {path:':id/edit',component:RecipeEditComponent,resolve:[RecipeResolverService]}
+        {path:':id',component:RecipeDetailComponent },
+        {path:':id/edit',component:RecipeEditComponent}
     ]},
     {path:'shoppinglist',component:ShoppingListComponent},
     {path:'auth', component:AuthComponent},

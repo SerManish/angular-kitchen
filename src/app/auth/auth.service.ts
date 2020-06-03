@@ -20,7 +20,6 @@ export interface AuthResponse
 export class AuthService{
 
     user = new BehaviorSubject<User>(null);
-    private token:string = null;
     private timer:any;
 
     constructor(private http:HttpClient,private router:Router)
@@ -76,16 +75,10 @@ export class AuthService{
         this.timer = null;
     }
 
-    getToken()
-    {
-        return this.token;
-    }
-
     userHandler(email:string, localId:string, idToken:string,expiresIn:string)
     {
         const newExpirationDate = new Date(new Date().getTime() + +expiresIn * 1000);
         const user = new User(email,localId,idToken,newExpirationDate);
-        this.token = idToken;
         this.user.next(user);
         this.autoLogout(+expiresIn*1000);
         localStorage.setItem('userData',JSON.stringify(user));
